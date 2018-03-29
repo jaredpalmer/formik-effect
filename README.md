@@ -43,7 +43,7 @@ export const Signup = () =>
 
 ### Prop
 
-Only one props! 
+Only one! 
 
 
 #### `onChange: (currentState: FormikState<Values>, nextState: FormikState<Values> => void;`
