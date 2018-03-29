@@ -41,11 +41,21 @@ export const Signup = () =>
   </div>;
 ```
 
-### Props
+### Prop
 
 Only one props! 
 
-- `onChange: (currentState: FormikState<Values>, nextState: FormikState<Values> => void;`: Put side effects here! 
+
+#### `onChange: (currentState: FormikState<Values>, nextState: FormikState<Values> => void;`
+
+Put your side effect here....
+
+`FormikState` includes:
+
+- `values`
+- `errors`
+- `touched`
+- `isSubmitting`
 
 
 ## Author
