@@ -20,8 +20,6 @@
   "typings": "dist/formik-effect.d.ts",
   "files": ["dist"],
   "scripts": {
-    "test": "jest --env=jsdom",
-    "test:watch": "npm run test -- --watch",
     "start": "cross-env NODE_ENV=development tsc-watch --onSuccess \"rollup -c\"",
     "prebuild": "rimraf dist",
     "build": "tsc && cross-env NODE_ENV=production rollup -c && rimraf compiled",
