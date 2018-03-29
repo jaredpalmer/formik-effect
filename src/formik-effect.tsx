@@ -31,16 +31,16 @@ export class Effect<Values = {}> extends React.Component<
     if (nextContext.formik !== this.context.formik) {
       this.props.onChange(
         {
-          values: nextValues,
-          touched: nextTouched,
-          errors: nextErrors,
-          isSubmitting: nextIsSubmitting,
-        },
-        {
           values,
           touched,
           errors,
           isSubmitting,
+        },
+        {
+          values: nextValues,
+          touched: nextTouched,
+          errors: nextErrors,
+          isSubmitting: nextIsSubmitting,
         }
       );
     }
