@@ -1,7 +1,7 @@
 {
   "name": "formik-effect",
   "description": "Declarative effects for Formik forms",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "author": "Jared Palmer <jared@palmer.net>",
   "repository": "jaredpalmer/formik-effect",
