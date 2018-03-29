@@ -27,7 +27,7 @@ export class Effect<Values = {}> extends React.Component<
       touched: nextTouched,
       errors: nextErrors,
       isSubmitting: nextIsSubmitting,
-    } = this.context.formik;
+    } = nextContext.formik;
     if (nextContext.formik !== this.context.formik) {
       this.props.onChange(
         {
