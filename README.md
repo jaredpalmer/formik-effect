@@ -55,7 +55,7 @@ export const Signup = () =>
 Only one! 
 
 
-#### `onChange: (currentState: FormikState<Values>, nextState: FormikState<Values> => void`
+#### `onChange: (currentState: FormikState<Values>, nextState: FormikState<Values>) => void`
 
 Put your side effect here.
 
