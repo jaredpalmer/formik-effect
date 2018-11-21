@@ -3,7 +3,7 @@ import filesize from 'rollup-plugin-filesize';
 
 import resolve from 'rollup-plugin-node-resolve';
 import sourceMaps from 'rollup-plugin-sourcemaps';
-import uglify from 'rollup-plugin-uglify';
+import { uglify } from 'rollup-plugin-uglify';
 
 const shared = {
   entry: `compiled/formik-effect.js`,

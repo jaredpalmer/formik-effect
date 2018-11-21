@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { FormikProps, FormikState } from 'formik';
-import * as PropTypes from 'prop-types';
+import { connect, FormikContext, FormikState } from 'formik';
 
 export interface EffectProps<Values = {}> {
   onChange(
@@ -9,38 +8,47 @@ export interface EffectProps<Values = {}> {
   ): void;
 }
 
-export class Effect<Values = {}> extends React.Component<
-  EffectProps<Values>,
+class EffectInner<Values = {}> extends React.Component<
+  EffectProps<Values> & { formik: FormikContext<Values> },
   {}
 > {
-  static contextTypes = {
-    formik: PropTypes.object,
-  };
-
-  componentWillReceiveProps(
-    _nextProps: EffectProps<Values>,
-    nextContext: { formik: FormikProps<Values> }
+  componentDidUpdate(
+    prevProps: EffectProps<Values> & { formik: FormikContext<Values> }
   ) {
-    const { values, touched, errors, isSubmitting } = this.context.formik;
+    const {
+      values,
+      touched,
+      errors,
+      isSubmitting,
+      isValidating,
+      submitCount,
+    } = prevProps.formik;
     const {
       values: nextValues,
       touched: nextTouched,
       errors: nextErrors,
       isSubmitting: nextIsSubmitting,
-    } = nextContext.formik;
-    if (nextContext.formik !== this.context.formik) {
+      isValidating: nextIsValidating,
+      submitCount: nextSubmitCount,
+    } = this.props.formik;
+
+    if (this.props.formik !== prevProps.formik) {
       this.props.onChange(
         {
           values,
           touched,
           errors,
           isSubmitting,
+          isValidating,
+          submitCount,
         },
         {
           values: nextValues,
           touched: nextTouched,
           errors: nextErrors,
           isSubmitting: nextIsSubmitting,
+          isValidating: nextIsValidating,
+          submitCount: nextSubmitCount,
         }
       );
     }
@@ -50,3 +58,5 @@ export class Effect<Values = {}> extends React.Component<
     return null;
   }
 }
+
+export const Effect = connect<EffectProps<any>, any>(EffectInner);
