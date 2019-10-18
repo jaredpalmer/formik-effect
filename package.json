@@ -29,6 +29,7 @@
     "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*' 'test/**/*'",
     "precommit": "lint-staged",
     "addc": "all-contributors add",
+    "test": "exit 0",
     "gen-docs": "all-contributors generate && doctoc README.md"
   },
   "dependencies": {},
